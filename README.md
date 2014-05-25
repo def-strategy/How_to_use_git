@@ -12,11 +12,11 @@ Gitは分散管理という点がSubversionと異なります。
 ## Gitインストール
 1. [git for Windows](http://msysgit.github.io/) からgitのインストーラをダウンロードする
 2. インストールを進めていくとこんな画面が出てきます。PATHの設定画面です。
-   ![環境設定](git\_path\_env.PNG)  
+   ![環境設定](images/git\_path\_env.PNG)  
    どれでも構わない感はありますが、2番目(Use Git from the Windows...)を選ぶのが無難と思います。
 
 3. 次画面はちょっと重要です。結論から言うと、2番目をお勧めします。
-   ![改行コード変換設定](git\_endingConversion\_env.PNG)  
+   ![改行コード変換設定](images/git\_endingConversion\_env.PNG)  
    何をしようとしているかというと、リポジトリへのチェックイン時、及びリポジトリからの
    チェックアウト時における改行コードの扱いを  
    どうするか決めようとしています。  
