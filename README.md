@@ -39,3 +39,36 @@ $ git config --global user.email "hogehoge@example.com"
 ```
 ここで設定する名前はGitのコミットログなどに使われます。GitHubを使う際にも公開されます。  
 ひとまず初期設定は完了です。他にも色々設定できる項目があるので、適宜ググってみてください。
+
+## ssh keyの設定
+gitサーバーとのやり取りはSSHによる公開鍵認証で行うので、そのための公開鍵と秘密鍵のペアを作成します。
+
+* Git Bashを起動
+* 以下のコマンドを実行
+```
+$ ssh-keygen -t rsa -C "hogehoge@example.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key ((秘密鍵が保存されるフォルダ)/.ssh/id_rsa):何も入れずにEnter
+Enter passphrare (empty for no passphrase):好きなパスフレーズを入力 画面に出力されないので注意
+Enter same passphrase again:同じパスフレーズを入力 画面に出力されないので注意
+Your identification has been saved in (秘密鍵が保存されるフォルダ)/.ssh/id_rsa.
+Your public key has been saved in (秘密鍵が保存されるフォルダ)/.ssh/id_rsa.pub.
+The key fingerprint is:
+(SSH Fingerprintが表示される) hogehoge@example.com
+```
+* GitHubページの右上にある工具のようなアイコン(Account Settings)を開いて、  
+   ウィンドウ左部のSSH keysを選択。Add SSH keyをクリックして、先程作成した  
+   (秘密鍵が保存されるフォルダ)/.ssh/id_rsaの中身をkeyフォームに丸々コピー&ペースト。  
+   Titleは何でも良いと思います。  
+   私はデスクトップとラップトップ両方でGitHubと通信するつもりなので、Desktop_ssh_keyと付けました。
+* 入力したらAdd keyをクリック。正しく公開鍵が登録されていれば、アカウント作成時に  
+   登録したメールアドレスにメールが来ているはずです。
+* 以下コマンドを実行。
+```
+$ ssh -T git@github.com
+Enter passphrase for key '(秘密鍵が保存されるフォルダ)/.ssh/id_rsa': パスフレーズを入力 画面に表示され(ry
+```
+以下のように表示されればOKです。  
+```
+Hi (ユーザー名)! You've successfully authenticated, but GitHub does not provide shell access.
+```
