@@ -72,3 +72,7 @@ Enter passphrase for key '(秘密鍵が保存されるフォルダ)/.ssh/id_rsa'
 ```
 Hi (ユーザー名)! You've successfully authenticated, but GitHub does not provide shell access.
 ```
+
+## SourceTreeの導入
+ここを参考にしてください。。。  
+[SourceTree for WindowsからGitを利用する](http://codezine.jp/article/detail/7400)
